@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Arthur Collins - Investigações</title>
+    <title>Arthur Collins - Investigações Independentes</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
 
         body {
             margin: 0;
@@ -21,32 +20,30 @@
         header {
             background: #333;
             color: white;
-            padding: 22px 15px;
-            text-align: center;
-            border-bottom: 4px solid #111;
+            padding: 20px 25px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 25px;
+            font-weight: normal;
         }
 
         header p {
-            margin: 6px 0 0;
-            font-size: 14px;
+            margin: 5px 0 0;
+            color: #ccc;
+            font-size: 13px;
         }
 
         nav {
-            background: #d6d6d6;
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #999;
+            background: #444;
+            padding: 10px 25px;
         }
 
         nav a {
-            color: #222;
+            color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin-right: 20px;
             font-size: 14px;
         }
 
@@ -55,397 +52,536 @@
         }
 
         main {
-            width: 90%;
             max-width: 850px;
-            margin: 30px auto;
+            margin: 35px auto;
+            padding: 0 20px;
         }
 
         section {
-            background: white;
-            border: 1px solid #bbb;
-            padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
-        h2 {
-            margin-top: 0;
-            font-size: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 8px;
+        section h2 {
+            font-size: 22px;
+            font-weight: normal;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 10px;
         }
 
         .investigacao {
             display: block;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 18px;
+            margin: 12px 0;
             color: #222;
             text-decoration: none;
-            border: 1px solid #ccc;
-            padding: 13px;
-            margin-bottom: 10px;
-            background: #f7f7f7;
             cursor: pointer;
         }
 
         .investigacao:hover {
-            background: #e9e9e9;
+            background: #f7f7f7;
         }
 
         .investigacao h3 {
-            margin: 0 0 5px;
-            font-size: 16px;
+            margin-top: 0;
+            font-size: 18px;
+            font-weight: normal;
         }
 
         .investigacao p {
-            margin: 5px 0;
             font-size: 14px;
+            line-height: 1.5;
         }
 
         .status {
+            display: inline-block;
+            padding: 5px 8px;
+            background: #ddd;
+            border: 1px solid #aaa;
             font-size: 12px;
-            color: #555;
         }
 
-        /* Janela das investigações */
+        input,
+        textarea {
+            padding: 8px;
+            border: 1px solid #aaa;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            padding: 8px 18px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 12px;
+        }
 
         .janela {
             display: none;
             position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.45);
-            align-items: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.45);
             justify-content: center;
-            padding: 20px;
-            z-index: 10;
+            align-items: center;
         }
 
         .conteudo {
-            width: 100%;
-            max-width: 600px;
             background: white;
-            border: 2px solid #333;
-            padding: 20px;
+            width: 90%;
+            max-width: 650px;
+            padding: 25px;
             position: relative;
-        }
-
-        .conteudo h2 {
-            margin-top: 0;
+            box-sizing: border-box;
         }
 
         .fechar {
             position: absolute;
-            right: 12px;
+            right: 15px;
             top: 8px;
-            font-size: 22px;
+            font-size: 25px;
             cursor: pointer;
-            color: #333;
+            color: #555;
         }
 
         .fechar:hover {
             color: #000;
         }
 
-        /* Texto quase invisível da investigação da NewGenesis */
-
-        .pista-newgenesis {
-            color: #fafafa;
-            font-size: 11px;
-            user-select: text;
-            margin-top: 25px;
-        }
-
-        .pista-newgenesis .distorcido {
-            letter-spacing: 2px;
-            transform: skewX(-8deg);
-            display: inline-block;
-            opacity: 0.7;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 12px;
-        }
     </style>
+
 </head>
+
 
 <body>
 
-    <header>
-        <h1>Arthur Collins</h1>
-        <p>Investigações Independentes</p>
-    </header>
 
-    <nav>
-        <a href="#inicio">Início</a>
-        <a href="#investigacoes">Investigações</a>
-        <a href="#contato">Contato</a>
-    </nav>
+<header>
 
-    <main>
+    <h1>Arthur Collins</h1>
 
-        <!-- INÍCIO -->
+    <p>
+        Investigações Independentes
+    </p>
 
-        <section id="inicio">
-            <h2>Início</h2>
-
-            <p>
-                Bem-vindo ao meu arquivo de investigações.
-            </p>
-
-            <p>
-                Meu nome é Arthur Collins. Trabalho de forma independente,
-                investigando casos, denúncias e acontecimentos que não
-                receberam uma explicação satisfatória.
-            </p>
-
-            <p>
-                Aqui estão registrados alguns dos casos que investiguei.
-            </p>
-        </section>
+</header>
 
 
-        <!-- INVESTIGAÇÕES -->
+<nav>
 
-        <section id="investigacoes">
+    <a href="#inicio">Início</a>
 
-            <h2>Investigações</h2>
+    <a href="#investigacoes">Investigações</a>
 
-            <a class="investigacao" href="#" onclick="abrirCaso('caso1'); return false;">
-                <h3>Caso #01 - Desaparecimento de Thomas Reed</h3>
-                <p>
-                    Um desaparecimento ocorrido em circunstâncias incomuns.
-                </p>
-                <span class="status">Status: Concluído</span>
-            </a>
+    <a href="#contato">Contato</a>
 
-            <a class="investigacao" href="#" onclick="abrirCaso('caso2'); return false;">
-                <h3>Caso #02 - Casa da Rua Miller</h3>
-                <p>
-                    Relatos de sons e movimentações em uma residência abandonada.
-                </p>
-                <span class="status">Status: Concluído</span>
-            </a>
-
-            <a class="investigacao" href="#" onclick="abrirCaso('caso3'); return false;">
-                <h3>Caso #03 - Acidente na Rodovia 17</h3>
-                <p>
-                    Um acidente com informações conflitantes entre testemunhas.
-                </p>
-                <span class="status">Status: Concluído</span>
-                
-            </a><a class="investigacao" href="#" onclick="abrirCaso('newgenesis'); return false;">
-                <h3>Caso #07 - NewGenesis Corporation</h3>
-                <p>
-                    Investigação sobre uma denúncia envolvendo a empresa.
-                </p>
-                <span class="status">Status: Em andamento</span>
-            </a>
-
-        </section>
+</nav>
 
 
-        <!-- CONTATO -->
+<main>
 
-        <section id="contato">
 
-            <h2>Contato</h2>
+    <!-- INÍCIO -->
+
+    <section id="inicio">
+
+        <h2>Início</h2>
+
+        <p>
+            Bem-vindo ao arquivo de investigações de Arthur Collins.
+        </p>
+
+        <p>
+            Investigações independentes sobre casos que ficaram
+            sem respostas.
+        </p>
+
+    </section>
+
+
+
+    <!-- INVESTIGAÇÕES -->
+
+    <section id="investigacoes">
+
+        <h2>Investigações</h2>
+
+
+        <!-- CASO 01 -->
+
+        <a class="investigacao"
+           href="#"
+           onclick="abrirCaso('caso1'); return false;">
+
+            <h3>
+                Caso #01 - Desaparecimento de Thomas Reed
+            </h3>
 
             <p>
-                Caso tenha informações sobre alguma investigação,
-                entre em contato.
+                Investigação sobre o desaparecimento de Thomas Reed.
             </p>
 
-            <form onsubmit="enviarMensagem(event)">
+            <span class="status">
+                Status: Concluído
+            </span>
 
-                <p>
-                    <label>Nome:</label><br>
-                    <input type="text" required style="width: 95%;">
-                </p>
-
-                <p>
-                    <label>E-mail:</label><br>
-                    <input type="email" required style="width: 95%;">
-                </p>
-
-                <p>
-                    <label>Mensagem:</label><br>
-                    <textarea rows="6" required style="width: 95%;"></textarea>
-                </p>
-
-                <button type="submit">Enviar</button>
-
-            </form>
-
-        </section>
-
-    </main>
+        </a>
 
 
-    <!-- JANELA DOS CASOS -->
 
-    <div class="janela" id="janela">
+        <!-- CASO 02 -->
 
-        <div class="conteudo">
+        <a class="investigacao"
+           href="#"
+           onclick="abrirCaso('caso2'); return false;">
 
-            <span class="fechar" onclick="fecharCaso()">×</span>
+            <h3>
+                Caso #02 - Casa da Rua Miller
+            </h3>
 
-            <div id="textoCaso"></div>
+            <p>
+                Investigação sobre acontecimentos relatados
+                em uma residência abandonada.
+            </p>
 
-        </div>
+            <span class="status">
+                Status: Concluído
+            </span>
+
+        </a>
+
+
+
+        <!-- CASO 03 -->
+
+        <a class="investigacao"
+           href="#"
+           onclick="abrirCaso('caso3'); return false;">
+
+            <h3>
+                Caso #03 - Acidente na Rodovia 17
+            </h3>
+
+            <p>
+                Investigação sobre um acidente ocorrido
+                durante a madrugada.
+            </p>
+
+            <span class="status">
+                Status: Concluído
+            </span>
+
+        </a>
+
+
+
+        <!-- CASO 07 -->
+
+        <a class="investigacao"
+           href="caso07.html">
+
+            <h3>
+                Caso #07 - NewGenesis Corporation
+            </h3>
+
+            <p>
+                Investigação sobre uma denúncia envolvendo
+                a empresa.
+            </p>
+
+            <span class="status">
+                Status: Em andamento
+            </span>
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- CONTATO -->
+
+    <section id="contato">
+
+        <h2>Contato</h2>
+
+        <p>
+            Caso tenha informações sobre alguma investigação,
+            entre em contato.
+        </p>
+
+
+        <form onsubmit="enviarMensagem(event)">
+
+
+            <p>
+
+                <label>
+                    Nome:
+                </label>
+
+                <br>
+
+                <input
+                    type="text"
+                    required
+                    style="width: 95%;">
+
+            </p>
+
+
+            <p>
+
+                <label>
+                    E-mail:
+                </label>
+
+                <br>
+
+                <input
+                    type="email"
+                    required
+                    style="width: 95%;">
+
+            </p>
+
+
+            <p>
+
+                <label>
+                    Mensagem:
+                </label>
+
+                <br>
+
+                <textarea
+                    rows="6"
+                    required
+                    style="width: 95%;"></textarea>
+
+            </p>
+
+
+            <button type="submit">
+                Enviar
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- JANELA DOS CASOS ANTIGOS -->
+
+<div
+    class="janela"
+    id="janela">
+
+
+    <div class="conteudo">
+
+
+        <span
+            class="fechar"
+            onclick="fecharCaso()">
+
+            ×
+
+        </span>
+
+
+        <div id="textoCaso"></div>
+
 
     </div>
 
-
-    <footer>
-        © 1983 Arthur Collins - Investigações Independentes
-    </footer>
+</div>
 
 
-    <script>
 
-        function abrirCaso(caso) {
+<footer>
 
-            const janela = document.getElementById("janela");
-            const texto = document.getElementById("textoCaso");
+    © 1983 Arthur Collins - Investigações Independentes
 
-            if (caso === "caso1") {
-
-                texto.innerHTML = `
-                    <h2>Caso #01 - Desaparecimento de Thomas Reed</h2>
-
-                    <p>
-                        Thomas Reed desapareceu após sair de seu trabalho
-                        na noite de 14 de março.
-                    </p>
-
-                    <p>
-                        Após três semanas de investigação, algumas
-                        testemunhas foram localizadas e o caso foi
-                        encaminhado às autoridades responsáveis.
-                    </p>
-
-                    <p>
-                        Não foram encontradas evidências de envolvimento
-                        de terceiros.
-                    </p>
-
-                    <p><strong>Status:</strong> Concluído.</p>
-                `;
-
-            }
-
-            else if (caso === "caso2") {
-
-                texto.innerHTML = `
-                    <h2>Caso #02 - Casa da Rua Miller</h2>
-
-                    <p>
-                        Moradores da região relataram sons vindos de uma
-                        residência abandonada durante a madrugada.
-                    </p>
-
-                    <p>
-                        A investigação constatou que parte dos sons
-                        provavelmente vinha da estrutura da própria casa.
-                    </p>
-
-                    <p>
-                        O imóvel foi posteriormente interditado.
-                    </p>
-
-                    <p><strong>Status:</strong> Concluído.</p>
-                `;
-
-            }
-
-            else if (caso === "caso3") {
-
-                texto.innerHTML = `
-                    <h2>Caso #03 - Acidente na Rodovia 17</h2>
-
-                    <p>
-                        Um acidente ocorrido durante a madrugada apresentou
-                        versões diferentes entre as testemunhas.
-                    </p>
-
-                    <p>
-                        Documentos e relatos foram reunidos e entregues
-                        às autoridades.
-                    </p>
-
-                    <p>
-                        Não foi possível determinar algumas das
-                        circunstâncias do acidente.
-                    </p>
-
-                    <p><strong>Status:</strong> Concluído.</p>
-                `;
-
-            }
-
-            else if (caso === "newgenesis") {
-
-                texto.innerHTML = `
-                    <h2>Caso #07 - NewGenesis Corporation</h2>
-
-                    <p>
-                        Recebi uma denúncia envolvendo a NewGenesis Corporation.
-                    </p>
-
-                    <p>
-                        Ainda estou verificando as informações recebidas.
-                        Pretendo visitar as instalações da empresa para
-                        descobrir se existe alguma coisa por trás da denúncia.
-                    </p>
-
-                    <p>
-                        A investigação continua.
-                    </p>
-
-                    <p>
-                        <strong>Status:</strong> Em andamento.
-                    </p>
-
-                    <div class="pista-newgenesis">
-                        onde estou? está quente, parece...
-                        <span class="distorcido">
-                            q outro ser est&aacute; na minha cabe&ccedil;a
-                        </span>
-                    </div>
-                `;
-
-            }
-
-            janela.style.display = "flex";
-        }
+</footer>
 
 
-        function fecharCaso() {
-            document.getElementById("janela").style.display = "none";
-        }
+
+<script>
 
 
-        function enviarMensagem(event) {
+    function abrirCaso(caso) {
 
-            event.preventDefault();
+        const janela =
+            document.getElementById("janela");
 
-            alert("Mensagem enviada.");
+        const texto =
+            document.getElementById("textoCaso");
+
+
+        if (caso === "caso1") {
+
+            texto.innerHTML = `
+
+                <h2>
+                    Caso #01 - Desaparecimento de Thomas Reed
+                </h2>
+
+                <p>
+                    Thomas Reed desapareceu após sair de seu
+                    trabalho na noite de 14 de março.
+                </p>
+
+                <p>
+                    Após três semanas de investigação,
+                    algumas testemunhas foram localizadas
+                    e o caso foi encaminhado às autoridades.
+                </p>
+
+                <p>
+                    Não foram encontradas evidências de
+                    envolvimento de terceiros.
+                </p>
+
+                <p>
+                    <strong>Status:</strong> Concluído.
+                </p>
+
+            `;
 
         }
 
 
-        window.onclick = function(event) {
+        else if (caso === "caso2") {
 
-            const janela = document.getElementById("janela");
+            texto.innerHTML = `
 
-            if (event.target === janela) {
-                fecharCaso();
-            }
+                <h2>
+                    Caso #02 - Casa da Rua Miller
+                </h2>
 
-        };
+                <p>
+                    Moradores da região relataram sons
+                    vindos de uma residência abandonada
+                    durante a madrugada.
+                </p>
 
-    </script>
+                <p>
+                    A investigação constatou que parte
+                    dos sons provavelmente vinha da
+                    própria estrutura da casa.
+                </p>
+
+                <p>
+                    O imóvel foi posteriormente interditado.
+                </p>
+
+                <p>
+                    <strong>Status:</strong> Concluído.
+                </p>
+
+            `;
+
+        }
+
+
+        else if (caso === "caso3") {
+
+            texto.innerHTML = `
+
+                <h2>
+                    Caso #03 - Acidente na Rodovia 17
+                </h2>
+
+                <p>
+                    Um acidente ocorrido durante a madrugada
+                    apresentou versões diferentes entre
+                    as testemunhas.
+                </p>
+
+                <p>
+                    Documentos e relatos foram reunidos
+                    e entregues às autoridades.
+                </p>
+
+                <p>
+                    Não foi possível determinar algumas
+                    das circunstâncias do acidente.
+                </p>
+
+                <p>
+                    <strong>Status:</strong> Concluído.
+                </p>
+
+            `;
+
+        }
+
+
+        janela.style.display = "flex";
+
+    }
+
+
+
+    function fecharCaso() {
+
+        document.getElementById("janela")
+            .style.display = "none";
+
+    }
+
+
+
+    function enviarMensagem(event) {
+
+        event.preventDefault();
+
+        alert("Mensagem enviada.");
+
+    }
+
+
+
+    window.onclick = function(event) {
+
+        const janela =
+            document.getElementById("janela");
+
+
+        if (event.target === janela) {
+
+            fecharCaso();
+
+        }
+
+    };
+
+
+</script>
+
 
 </body>
-                        </html
-    
+
+                </html>
